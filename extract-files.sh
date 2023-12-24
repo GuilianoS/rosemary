@@ -49,6 +49,30 @@ while [ "${#}" -gt 0 ]; do
     shift
 done
 
+function blob_fixup {
+    case "$1" in
+        vendor/lib64/libwifi-hal-mtk.so)
+            "${PATCHELF}" --set-soname "libwifi-hal-mtk.so" "${2}"
+            ;;
+        vendor/bin/mnld|vendor/lib64/libaalservice.so|vendor/lib64/libcam.utils.sensorprovider.so|vendor/lib64/hw/vendor.mediatek.hardware.camera.postproc@1.0-impl.so)
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-v33.so" "$2"
+            ;;
+        lib64/libsink.so)
+            "${PATCHELF}" --add-needed "libshim_vtservice.so" "${2}"
+            ;;
+        vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service|vendor/lib*/hw/vendor.mediatek.hardware.pq@2.13-impl.so)
+            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
+            "${PATCHELF}" --add-needed "libbinder-v32.so" "${2}"
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            ;;
+        vendor/bin/hw/camerahalserver)
+            "$PATCHELF" --replace-needed "libutils.so" "libutils-v32.so" "$2"
+            "${PATCHELF}" --add-needed "libbinder-v32.so" "${2}"
+            "${PATCHELF}" --replace-needed "libhidlbase.so" "libhidlbase-v32.so" "${2}"
+            ;;
+    esac
+}
+
 if [ -z "${SRC}" ]; then
     SRC="adb"
 fi

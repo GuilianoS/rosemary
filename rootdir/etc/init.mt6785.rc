@@ -1,22 +1,19 @@
 # MTK platform .rc configure
 
-import ${ro.vendor.rc}init.connectivity.rc
-import ${ro.vendor.rc}init.mt6785.usb.rc
+import /vendor/etc/init/hw/init.connectivity.rc
+import /vendor/etc/init/hw/init.mt6785.usb.rc
 import /vendor/etc/init/hw/init.project.rc
-import /system_ext/etc/init/hw/init.aee.rc
 import /FWUpgradeInit.rc
-import /vendor/etc/init/hw/init.aee.rc
-import ${ro.vendor.rc}init.volte.rc
-import ${ro.vendor.rc}init.mal.rc
-import ${ro.vendor.rc}init.sensor_1_0.rc
+import /vendor/etc/init/hw/init.volte.rc
+import /vendor/etc/init/hw/init.mal.rc
+import /vendor/etc/init/hw/init.sensor_1_0.rc
 import /vendor/etc/init/hw/init.stnfc.rc
 import /product/etc/init/hw/init.stnfc.rc
 import init.mishow.ctl.rc
-import ${ro.vendor.rc}init.cgroup.rc
-
+import /vendor/etc/init/hw/init.cgroup.rc
 
 # init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
-import ${ro.vendor.rc}init.modem.rc
+import /vendor/etc/init/hw/init.modem.rc
 # *** DO NOT import the new rc file after this line ***
 
 on early-init
@@ -303,6 +300,10 @@ on post-fs-data
     chown system system /mnt/vendor/nvcfg/fg
     chown system system /mnt/vendor/nvcfg/fg/old_fg_data
     chown system system /mnt/vendor/nvcfg/fg/car_tune_value
+
+# Fingerprint
+    mkdir /data/vendor/fpc 0777 system system
+	mkdir /data/vendor/goodix 0777 system system
 
 #M306 add for audio usnd calibration
 
@@ -1045,6 +1046,15 @@ on boot
     chmod 660 /dev/ttyGS1
     chown system radio /dev/ttyGS1
 
+    # Fingerprint
+    chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/irq
+    chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/wakeup_enable
+    chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/modalias
+    chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/clk_enable
+    chown system system /sys/devices/platform/1100a000.spi0/spi_master/spi0/spi0.0/authen_fd/performance
+    chmod 0644 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+
 #on boot
     chown system system /sys/bus/platform/devices/aw8622/activate
     chown system system /sys/bus/platform/devices/aw8622/index
@@ -1054,6 +1064,10 @@ on boot
     chown system system /sys/bus/platform/devices/aw8622/debug_val_ctrl
     chown system system /sys/bus/platform/devices/aw8622/pwm_ctrl
     chown system system /sys/bus/platform/devices/aw8622/test_cnt
+
+# Fingerprint
+on property:ro.hardware.fp.restartimes=max
+    stop vendor.fps_hal
 
 on property:vold.decrypt=trigger_reset_main
     write /proc/bootprof "INIT:vold.decrypt=trigger_reset_main"

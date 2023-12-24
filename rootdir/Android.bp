@@ -1,9 +1,3 @@
-//
-// Copyright (C) 2023 The LineageOS Project
-//
-// SPDX-License-Identifier: Apache-2.0
-//
-
 // Init scripts
 sh_binary {
     name: "init.insmod.sh",
@@ -36,13 +30,6 @@ prebuilt_etc {
 prebuilt_etc {
     name: "factory_init.rc",
     src: "etc/factory_init.rc",
-    sub_dir: "init/hw",
-    vendor: true,
-}
-
-prebuilt_etc {
-    name: "init.aee.rc",
-    src: "etc/init.aee.rc",
     sub_dir: "init/hw",
     vendor: true,
 }
@@ -170,5 +157,26 @@ prebuilt_etc {
 prebuilt_etc {
     name: "fstab.emmc",
     src: "etc/fstab.emmc",
+    vendor: true,
+    ramdisk_available: true,
+}
+
+prebuilt_etc {
+    name: "fstab.mt6785",
+    src: "etc/fstab.mt6785",
+    vendor: true,
+    ramdisk_available: true,
+}
+
+prebuilt_etc {
+    name: "fstab.enableswap",
+    src: "etc/fstab.enableswap",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "ueventd.mtk.rc",
+    filename: "ueventd.rc",
+    src: "etc/ueventd.mtk.rc",
     vendor: true,
 }
