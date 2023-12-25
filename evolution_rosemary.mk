@@ -14,8 +14,6 @@ $(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 # Inherit from rosemary device
 $(call inherit-product, device/xiaomi/rosemary/device.mk)
 
-TARGET_USES_PICO_GAPPS := true
-
 PRODUCT_DEVICE := rosemary
 PRODUCT_NAME := evolution_rosemary
 PRODUCT_BRAND := Redmi
