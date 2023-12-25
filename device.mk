@@ -246,27 +246,16 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
-# MEDIA
+# Media
 PRODUCT_PACKAGES += \
-    android.hardware.media.c2@1.2.vendor \
-    android.hardware.media.c2@1.1.vendor \
-    android.hardware.media.c2@1.0.vendor \
-    android.hardware.media.bufferpool@2.0 \
-    android.hardware.media@1.0 \
-    libdatasource \
-    libsfplugin_ccodec \
-    libcodec2-impl-defaults \
-    libcodec2-impl-defaults.vendor \
-    libstagefright \
-    libstagefright_surface_utils \
-    libstagefright_omx.vendor \
-    com.android.media.swcodec \
-    libaudiofoundation.vendor \
     libcodec2_hidl@1.0.vendor \
     libcodec2_hidl@1.1.vendor \
     libcodec2_hidl@1.2.vendor \
     libavservices_minijail_vendor \
-    libcodec2_soft_common.vendor
+    libstagefright_softomx_plugin.vendor \
+    libsfplugin_ccodec_utils.vendor \
+    libcodec2_soft_common.vendor \
+    libaudiofoundation.vendor
 
 # vndservicemanager
 PRODUCT_PACKAGES += \
