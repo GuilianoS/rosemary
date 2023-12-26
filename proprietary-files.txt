@@ -1666,6 +1666,7 @@ lib64/libstagefright_wfd_mtk.so
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek
 vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b
 vendor/etc/init/android.hardware.media.c2@1.2-mediatek.rc
+vendor/etc/vintf/manifest/manifest_media_c2_V1_1_default.xml
 vendor/lib/libMtkOmxAdpcmDec.so
 vendor/lib/libMtkOmxAlacDec.so
 vendor/lib/libMtkOmxApeDec.so
@@ -1691,18 +1692,20 @@ vendor/lib64/libcodec2_vpp_qt_plugin.so
 vendor/lib64/libcodec2_vpp_rs_plugin.so
 vendor/lib64/libformatter.so
 vendor/lib64/libmp3dec_mtk.so
+vendor/lib/libcodec2_soft_mtk_alacdec.so
+vendor/lib/libcodec2_soft_mtk_apedec.so
+vendor/lib/libcodec2_soft_mtk_imaadpcmdec.so
+vendor/lib/libcodec2_soft_mtk_mp3dec.so
+vendor/lib/libcodec2_soft_mtk_msadpcmdec.so
+vendor/lib64/libcodec2_soft_mtk_alacdec.so
+vendor/lib64/libcodec2_soft_mtk_apedec.so
+vendor/lib64/libcodec2_soft_mtk_imaadpcmdec.so
+vendor/lib64/libcodec2_soft_mtk_mp3dec.so
+vendor/lib64/libcodec2_soft_mtk_msadpcmdec.so
 
 # Media (Dolby)
 lib/vendor.dolby.hardware.dms@2.0.so
 lib64/vendor.dolby.hardware.dms@2.0.so
-
-# Media configs
-vendor/etc/media_codecs.xml
-vendor/etc/media_codecs_c2.xml
-vendor/etc/media_codecs_mediatek_audio.xml
-vendor/etc/media_codecs_mediatek_video.xml
-vendor/etc/media_codecs_performance.xml
-vendor/etc/media_profiles_V1_0.xml
 
 # Neural networks
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron
@@ -2381,7 +2384,6 @@ vendor/etc/security/cacerts_supl/cec771d5.0
 vendor/etc/security/cacerts_supl/f336e3d1.0
 vendor/etc/vintf/manifest/lbs_hidl_service@1.0.xml
 vendor/etc/vintf/manifest/manifest_hwcomposer.xml
-vendor/etc/vintf/manifest/manifest_media_c2_V1_1_default.xml
 vendor/etc/voicecommand/training/ubmfile/keyword02/dddd/p1.5/nnp15_model.bin
 vendor/etc/voicecommand/training/ubmfile/keyword02/dddd/p1.5/p0
 vendor/etc/voicecommand/training/ubmfile/keyword02/dddd/p1.5/p0_new_p2
@@ -3192,8 +3194,6 @@ vendor/etc/mimdconfig
 vendor/etc/misound_res_headphone.bin
 vendor/etc/misound_res_spk.bin
 vendor/etc/mpe.conf
-vendor/etc/mtk_omx_core.cfg
-vendor/etc/mtk_platform_codecs_config.xml
 vendor/etc/nhw
 vendor/etc/partition_permission.sh
 vendor/etc/public.libraries.txt
@@ -3209,7 +3209,6 @@ vendor/etc/smsdbvisitor.xml
 vendor/etc/special_pws_channel.xml
 vendor/etc/spk_pb.wav
 vendor/etc/st21nfc_conf.txt
-vendor/etc/task_profiles.json
 vendor/etc/throttle.sh
 vendor/etc/ultrasound.wav
 vendor/etc/usb_audio_accessory_only_policy_configuration.xml
@@ -3277,11 +3276,6 @@ vendor/lib/libcharon-ss.so
 vendor/lib/libcheckpid.so
 vendor/lib/libcmdl.so
 vendor/lib/libcmdl_ndk.mtk.vndk.so
-vendor/lib/libcodec2_soft_mtk_alacdec.so
-vendor/lib/libcodec2_soft_mtk_apedec.so
-vendor/lib/libcodec2_soft_mtk_imaadpcmdec.so
-vendor/lib/libcodec2_soft_mtk_mp3dec.so
-vendor/lib/libcodec2_soft_mtk_msadpcmdec.so
 vendor/lib/libconnfem.so
 vendor/lib/libcrypto-md.so
 vendor/lib/libcurl-md.so
@@ -3471,11 +3465,6 @@ vendor/lib64/libcharon-ss.so
 vendor/lib64/libcheckpid.so
 vendor/lib64/libcmdl.so
 vendor/lib64/libcmdl_ndk.mtk.vndk.so
-vendor/lib64/libcodec2_soft_mtk_alacdec.so
-vendor/lib64/libcodec2_soft_mtk_apedec.so
-vendor/lib64/libcodec2_soft_mtk_imaadpcmdec.so
-vendor/lib64/libcodec2_soft_mtk_mp3dec.so
-vendor/lib64/libcodec2_soft_mtk_msadpcmdec.so
 vendor/lib64/libconnfem.so
 vendor/lib64/libcrypto-md.so
 vendor/lib64/libcurl-md.so
