@@ -364,8 +364,6 @@ PRODUCT_PACKAGES += \
     init.insmod.sh 
 
 PRODUCT_PACKAGES += \
-    fstab.emmc \
-    fstab.emmc.ramdisk \
     fstab.mt6785 \
     fstab.mt6785.ramdisk \
     fstab.enableswap \
@@ -394,9 +392,6 @@ PRODUCT_PACKAGES += \
     init.recovery.mt6785.rc \
     miui.factoryreset.rc \
     ueventd.mtk.rc
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.emmc
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
