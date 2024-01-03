@@ -19,19 +19,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-evolution
-
-# Overlays
-PRODUCT_PACKAGES += \
-    FrameworksResOverlayRosemary \
-    GoogleNetworkStackOverlayRosemary \
-    SettingsOverlayRosemary \
-    SystemUIOverlayRosemary \
-    TelephonyOverlayRosemary \
-    TetheringOverlayRosemary \
-    WifiOverlayRosemary
-
 # Seccomp_policy
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp/,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
@@ -156,6 +143,7 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth@1.1.vendor \
+    android.hardware.bluetooth.audio-impl \
     libbluetooth_audio_session
 
 #CAS
@@ -179,31 +167,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsuspend
 
-# DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4-service.clearkey
-
 PRODUCT_PACKAGES += \
     libmockdrmcryptoplugin
 
 # NDK
 PRODUCT_PACKAGES += \
-    android.hardware.light-V1-ndk_platform.vendor \
     android.hardware.gnss-V1-ndk_platform.vendor \
     android.hardware.power-V2-ndk_platform.vendor
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.mediatek
 
 # Shims
 PRODUCT_PACKAGES += \
     libshim_vtservice
-
-#DRM
-PRODUCT_PACKAGES += \
-    libclearkeycasplugin.vendor \
-    android.hardware.drm@1.0.vendor \
-    android.hardware.drm@1.1.vendor \
-    android.hardware.drm@1.2.vendor \
-    android.hardware.drm@1.3.vendor \
-    android.hardware.drm@1.4.vendor
 
 #GATEKEEPER
 PRODUCT_PACKAGES += \
@@ -400,6 +378,26 @@ PRODUCT_PACKAGES += \
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
+
+
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-evolution
+
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-evolution
+
+PRODUCT_PACKAGES += \
+    CarrierConfigOverlayRosemary \
+    FrameworksResOverlayRosemary \
+    SettingsProviderOverlayRosemary \
+    SystemUIOverlayRosemary \
+    TelephonyOverlayRosemary \
+    TetheringConfigOverlayRosemary \
+    WifiOverlayRosemary
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

@@ -1644,13 +1644,6 @@ vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 vendor/lib64/wechat.beanpod.so
 
-# Light
-vendor/bin/hw/android.hardware.lights-service.mediatek
-vendor/etc/init/lights-mtk-default.rc
-vendor/etc/vintf/manifest/lights-mtk-default.xml
-vendor/lib/hw/lights.mt6785.so
-vendor/lib64/hw/lights.mt6785.so
-
 # Media
 lib/libged_sys.so
 lib/libgralloc_extra_sys.so
@@ -3168,7 +3161,6 @@ vendor/etc/audio_em.xml
 vendor/etc/audio_policy.conf
 vendor/etc/aurisys_config.xml
 vendor/etc/aurisys_config_hifi3.xml
-vendor/etc/cgroups.json
 vendor/etc/cit_config.xml
 vendor/etc/default_pd_calibration.bin
 vendor/etc/dsi_panel_k7_38_0c_0a_fhdp_video_mi.xml
