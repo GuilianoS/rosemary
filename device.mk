@@ -339,6 +339,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpcap.vendor
 
+PRODUCT_PACKAGES += \
+    MtkInCallService
 
 # Partitions# Partitions
 PRODUCT_BUILD_SUPER_PARTITION := false
