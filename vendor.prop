@@ -338,6 +338,10 @@ ro.rom.zone=2
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.surface_flinger.primary_display_orientation=ORIENTATION_0
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
+ro.surface_flinger.set_idle_timer_ms=2147483647
+ro.surface_flinger.set_touch_timer_ms=2147483647
+ro.surface_flinger.set_display_power_timer_ms=2147483647
 ro.telephony.default_network=10,10,10,10
 ro.telephony.iwlan_operation_mode=AP-assisted
 ro.telephony.sim.count=2
@@ -502,3 +506,6 @@ bluetooth.profile.pan.panu.enabled=true
 bluetooth.profile.pbap.server.enabled=true
 ro.vendor.mtk.bt_sap_enable=true
 bluetooth.hci.erroneous_data_reporting.enabled=false
+
+vendor.perf.framepacing.enable=false
+persist.sys.background_blur_supported=true

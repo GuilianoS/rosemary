@@ -80,3 +80,8 @@ ro.vendor.mtk_power_off_alarm_test=1
 # Bluetooth
 ro.bluetooth.emb_wp_mode=false
 ro.bluetooth.wipower=false
+
+# VoLTE
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
